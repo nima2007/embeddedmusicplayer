@@ -72,31 +72,19 @@ int main(void)
 	lcd_clr();
 
 	note Song1[51]={
-		{E,Q},{E,Q},{Rest,H},{E,Q},{E,Q},{E,H},{E,Q},{G,Q},{C,Q + EI},{D,EI},
-		{E,H},{F,Q},{F,Q},{F,Q},{F,EI},{F,Q},{E,Q},{E,Q},{E,EI},{E,EI},
-		{E,Q},{D,Q},{D,Q},{E,Q},{D,H},{G,H},{E,Q},{E,Q},{E,H},{E,Q},{E,Q},{E,H},
-		{E,Q},{G,Q},{C,Q+EI},{D,EI},{E,W},{F,Q},{F,Q},{F,Q},{F,Q},{F,Q},
-		{F,Q},{E,Q},{E,EI},{E,EI},{G,Q},{G,Q},{F,Q},{D,Q},{C,W}
+		{E,Q},{E,Q}
 	};
 	
 	note Song2[50]={
-		{A,EI},{A,EI},{B,Q},{A,Q},{D,Q},{Csharp,H},
-		{A,EI},{A,EI},{B,Q},{A,Q},{E,Q},{D,H},
-		{A,EI},{A,EI},{A,Q},{Fsharp,Q},{D,Q},{Csharp,Q},{B,Q},
-		{G,EI},{G,EI},{Fsharp,Q},{D,Q},{E,Q},{D,H},
-		
-		{A,EI},{A,EI},{B,Q},{A,Q},{D,Q},{Csharp,H},
-		{A,EI},{A,EI},{B,Q},{A,Q},{E,Q},{D,H},
-		{A,EI},{A,EI},{A,Q},{Fsharp,Q},{D,Q},{Csharp,Q},{B,Q},
-		{G,EI},{G,EI},{Fsharp,Q},{D,Q},{E,Q},{D,H},
+		{A,EI}
 	};
 	
 	note Song3[42]={
 		{F,Q},{F,H},{G,Q},{G,Q},{A,Q},{C,Q},{A,H},{F,Q},{C,Q},{F,Q},{F,Q},{G,Q},{G,Q},{A,H},
 		{F,Q},{C,Q}
 	};
-	songs l[3]={{"Song1", Song1, 51}, 
-				{"Song2", Song2, 50}, 
+	songs l[3]={{"Song1", Song1, 2}, 
+				{"Song2", Song2, 1}, 
 				{"Song3", Song3, 16}};
 	
 	unsigned int i = 0;
