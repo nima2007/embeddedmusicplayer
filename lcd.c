@@ -1,3 +1,5 @@
+// Project 3 Jose&Nima
+
 #include "avr.h"
 #include "lcd.h"
 
