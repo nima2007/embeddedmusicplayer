@@ -8,19 +8,21 @@
 #include "lcd.h"
 
 //     note delay(freq)
-#define A 114
-#define Asharp 108
-#define B 101
-#define C 96
-#define Csharp 90
-#define D 85
-#define Dsharp 81 
-#define E 76
-#define F 72
-#define Fsharp 68
-#define G 64
-#define Gsharp 60
-#define Rest 0 // rest is not working yet
+#define A 440
+#define As 466
+#define B 494
+#define Bs 523
+#define C 554
+#define Cs 587
+#define D 622
+#define Ds 659
+#define E 698
+#define Es 740
+#define F 784
+#define Fs 831
+#define G 880
+#define Gs 932
+#define P 1 //Pause
 
 //      duration
 #define W 1
@@ -36,7 +38,7 @@ unsigned int vol;
 
 typedef struct{
 	unsigned int frequency;
-	float length;
+	float duration;
 } note;
 
 typedef struct {

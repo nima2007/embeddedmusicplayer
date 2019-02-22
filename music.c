@@ -100,22 +100,35 @@ switch (pressed)
 			}
 		}
 		
-		playsingle(song.sequence[i].frequency, song.sequence[i].length);
+		playsingle(song.sequence[i].frequency, song.sequence[i].duration);
 		avr_wait_tiny(100); //wait 1ms
 	}
 }
 
 void playsingle(unsigned int freq, float duration){
 	SET_BIT(DDRB, 4);
-	//each wait is 10us
-	//duration = 1s = 100 000
-	//k = duration * 8 * 10000 bc duration is multiple of 8
+	//each wait is 50us
+	//if we define a bar of music to be 1 second
+	//a whole note takes1 second, so W = 20,000 waits
+	//ok = duration * 8 * 20000 bc duration is multiple of 8
 	//tempo is increasing from .1 to 2
-	int ok = duration * 8 * 10000 / ((float)(tempo+10)/10) / freq;
-	
+	//int ok = duration * 8 * 20000 / ((float)(tempo*3)/10)/440
 	//change volume
-	unsigned int Thi = freq * (vol / 5.0);
-	unsigned int Tlo = freq - Thi;
+	short mult = 0;
+	switch(tempo)
+	{
+		case 1: mult = 100; break;
+		case 2: mult = 0; break;
+		case 3: mult = -100; break;
+		case 4: mult = -200; break;
+		case 5: mult = -250; break;
+		default: mult = 0; break;
+	}
+	
+	unsigned int Thi = 1/(freq*2*0.00005);
+	unsigned int Tlo = Thi;
+	
+	int ok = (duration * (20000/Thi)) + mult;
 	
 	//rest if needed
 	if(freq == 0)
@@ -125,7 +138,7 @@ void playsingle(unsigned int freq, float duration){
 	}
 	
 	
-	for (int i = 0; i < ok; ++i){
+	for (int i = 0; i < ok ; ++i){
 		SET_BIT(PORTB, 4);
 		avr_wait_tiny(Thi); //TH
 		CLR_BIT(PORTB, 4);
