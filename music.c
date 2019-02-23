@@ -125,10 +125,10 @@ void playsingle(unsigned int freq, float duration){
 		default: mult = 0; break;
 	}
 	
-	unsigned int Thi = 1/(freq*2*0.00005);
+	unsigned int Thi = 1/(freq*2*0.00001);
 	unsigned int Tlo = Thi;
 	
-	int ok = (duration * (20000/Thi)) + mult;
+	int ok = (duration * (100000/Thi)) + mult;
 	
 	//rest if needed
 	if(freq == 0)

@@ -26,7 +26,7 @@ void avr_wait_tiny(unsigned long microsec)
 {
 	TCCR0 = 2;
 	while (microsec--) {
-		TCNT0 = (unsigned char)(256 - (XTAL_FRQ / 8) * 0.00005);
+		TCNT0 = (unsigned char)(256 - (XTAL_FRQ / 8) * 0.00001);
 		SET_BIT(TIFR, TOV0);
 		WDR();
 		while (!GET_BIT(TIFR, TOV0));
