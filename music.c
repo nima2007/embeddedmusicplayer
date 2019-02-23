@@ -117,11 +117,11 @@ void playsingle(unsigned int freq, float duration){
 	short mult = 0;
 	switch(tempo)
 	{
-		case 1: mult = 100; break;
+		case 1: mult = 500; break;
 		case 2: mult = 0; break;
-		case 3: mult = -100; break;
-		case 4: mult = -200; break;
-		case 5: mult = -250; break;
+		case 3: mult = -500; break;
+		case 4: mult = -1000; break;
+		case 5: mult = -1500; break;
 		default: mult = 0; break;
 	}
 	
